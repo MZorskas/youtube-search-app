@@ -1,0 +1,12 @@
+@import 'src/styles/mixins/index';
+@import 'src/styles/base/base';
+
+.content-container {
+  display: flex;
+  margin: 2.5rem 0;
+  flex-direction: column;
+
+  @include if-desktop () {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,33 @@
+@import 'src/styles/mixins/index';
+@import 'src/styles/base/base';
+
+.results {
+  display: flex;
+  flex-direction: column;
+  color: $color-font-primary;
+  box-sizing: border-box;
+  flex: 1 0 33%;
+
+  &__title {
+    @include text-style-h2;
+
+    margin: 0;
+    padding: 2rem 0 0;
+  }
+
+  &__loader {
+    color: $color-primary;
+  }
+
+  @include if-phone {
+    &__title {
+      @include text-style-h3;
+    }
+  }
+
+  @include if-desktop {
+    &__title {
+      padding: 0;
+    }
+  }
+}

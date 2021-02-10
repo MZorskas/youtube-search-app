@@ -1,0 +1,19 @@
+@import 'src/styles/base/base';
+
+@mixin if-desktop {
+  @media screen and (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin if-tablet {
+  @media screen and (min-width: $breakpoint-phone) and (max-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin if-phone {
+  @media screen and (max-width: $breakpoint-phone) {
+    @content;
+  }
+}

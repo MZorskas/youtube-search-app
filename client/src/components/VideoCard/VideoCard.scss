@@ -1,0 +1,54 @@
+@import 'src/styles/mixins/index';
+@import 'src/styles/base/base';
+
+.video-card {
+  display: flex;
+  box-sizing: border-box;
+  margin: 2rem 0;
+
+  &__image-wrapper {
+    flex: 1 0 50%;
+    cursor: pointer;
+  }
+
+  &__info-wrapper {
+    align-items: flex-start;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1 0 50%;
+    flex-direction: column;
+    padding-left: 1rem;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    @include text-style-h3;
+    @include line-clamp(2);
+
+    cursor: pointer;
+    font-size: $font-size-large;
+    padding: 0;
+    margin: 0;
+    word-break: break-word;
+  }
+
+  &__author {
+    @include text-style-body;
+    @include line-clamp(1);
+
+    color: $color-font-secondary;
+    padding-top: 1rem;
+    margin: 0;
+    text-decoration: none;
+  }
+
+  @include if-phone {
+    &__title {
+      @include text-style-h4;
+    }
+  }
+}
