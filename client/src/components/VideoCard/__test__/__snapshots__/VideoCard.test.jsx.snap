@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoCard component matches snapshot 1`] = `
+<div
+  className="video-card"
+  data-testid="video-card"
+>
+  <div
+    className="video-card__image-wrapper"
+    data-testid="video-card-image"
+    onClick={[Function]}
+  >
+    <picture>
+      <source
+        data-testid="video-card-source-1"
+        media="(max-width: 500px)"
+        srcSet="imgURL1"
+      />
+      <source
+        data-testid="video-card-source-2"
+        media="(min-width: 501px) and (max-width: 1200px)"
+        srcSet="imgURL1"
+      />
+      <source
+        data-testid="video-card-source-3"
+        media="(min-width: 1201px)"
+        srcSet="imgURL2"
+      />
+      <img
+        alt="title"
+        className="video-card__image"
+        src="imgURL2"
+      />
+    </picture>
+  </div>
+  <div
+    className="video-card__info-wrapper"
+  >
+    <h3
+      className="video-card__title"
+      onClick={[Function]}
+      tabIndex="0"
+    >
+      title
+    </h3>
+    <a
+      className="video-card__author"
+      href="https://www.youtube.com/channel/authorId"
+      title="author"
+    >
+      author
+    </a>
+  </div>
+</div>
+`;

@@ -7,28 +7,20 @@
   &__form {
     display: flex;
   }
-
   &__input {
-    @include text-style-h4;
+    $_input-height: 6rem;
 
-    border: none;
-    box-sizing: border-box;
-    color: $color-font-secondary;
-    margin: 0;
-    min-height: 6rem;
+    min-height: $_input-height;
     padding: 0 1.6rem;
-    transition: 0.5s;
     width: 100%;
-
-    &--error {
-      background-color: lighten($color-error-primary, 20%);
-    }
+    transition: 0.5s;
 
     &::placeholder {
       @include text-style-h4;
 
       color: $color-font-secondary;
       font-weight: $font-weight-regular;
+      line-height: $_input-height;
     }
   }
 
@@ -43,10 +35,7 @@
     height: $_icon-size;
   }
 
-  &__validation-error {
-    @include text-style-body;
-
-    color: $color-error-primary;
+  &__error-message {
     margin: 0.5rem 0;
   }
 
@@ -54,7 +43,13 @@
     text-align: center;
 
     &__input {
-      min-height: 5rem;
+      $_input-height: 5rem;
+
+      min-height: $_input-height;
+
+      &::placeholder {
+        line-height: $_input-height;
+      }
     }
 
     &__button {

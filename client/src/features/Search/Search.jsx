@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './Search.scss';
 import { inputRegex } from 'utils/regex';
 import IconButton from 'components/IconButton';
+import ErrorMessage from 'components/ErrorMessage';
+import Input from 'components/Input';
 import { SearchIcon } from 'assets/icons';
 import PropTypes from 'prop-types';
 import { LOGGER_ACTIONS } from 'loggerActions';
-import classNames from 'classnames';
 
 const Search = ({ handleSearch, logUserAction }) => {
   const [inputValue, setInputValue] = useState();
@@ -44,14 +45,20 @@ const Search = ({ handleSearch, logUserAction }) => {
   };
 
   return (
-    <section className="search">
-      <form className="search__form" onSubmit={handleSubmit}>
-        <input
-          className={classNames('search__input', {
-            'search__input--error': validationError,
-          })}
+    <section className="search" data-testid="search">
+      <form
+        className="search__form"
+        aria-label="search"
+        onSubmit={handleSubmit}
+        data-testId="search-form"
+      >
+        <Input
+          className="search__input"
           onChange={handleChange}
-          placeholder="Search all the GIF's"
+          placeholder="Videos"
+          validationError={!!validationError}
+          id="search-input"
+          label="Search"
           autoFocus
         />
         <IconButton
@@ -61,7 +68,10 @@ const Search = ({ handleSearch, logUserAction }) => {
         />
       </form>
       {validationError && (
-        <p className="search__validation-error">{validationError}</p>
+        <ErrorMessage
+          className="search__error-message"
+          message={validationError}
+        />
       )}
     </section>
   );

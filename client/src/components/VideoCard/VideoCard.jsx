@@ -33,18 +33,32 @@ const VideoCard = memo(
     };
 
     return (
-      <div className={classNames('video-card', className)} ref={elementRef}>
-        <div className="video-card__image-wrapper" onClick={handleClick}>
+      <div
+        className={classNames('video-card', className)}
+        data-testid="video-card"
+        ref={elementRef}
+      >
+        <div
+          className="video-card__image-wrapper"
+          data-testid="video-card-image"
+          onClick={handleClick}
+        >
           <picture>
             <source
               media="(max-width: 500px)"
               srcSet={thumbnails.medium?.url}
+              data-testid="video-card-source-1"
             />
             <source
               media="(min-width: 501px) and (max-width: 1200px)"
               srcSet={thumbnails.medium?.url}
+              data-testid="video-card-source-2"
             />
-            <source media="(min-width: 1201px)" srcSet={thumbnails.high?.url} />
+            <source
+              media="(min-width: 1201px)"
+              srcSet={thumbnails.high?.url}
+              data-testid="video-card-source-3"
+            />
             <img
               src={thumbnails.high?.url}
               alt={title}
@@ -53,12 +67,7 @@ const VideoCard = memo(
           </picture>
         </div>
         <div className="video-card__info-wrapper">
-          <h3
-            className="video-card__title"
-            title={title}
-            onClick={handleClick}
-            tabIndex="0"
-          >
+          <h3 className="video-card__title" onClick={handleClick} tabIndex="0">
             {title}
           </h3>
           <a href={authorSrc} className="video-card__author" title={author}>

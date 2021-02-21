@@ -1,0 +1,23 @@
+@import 'src/styles/mixins/index';
+@import 'src/styles/base/base';
+
+.input-wrapper {
+  display: flex;
+  width: 100%;
+
+  &__input {
+    @include text-style-h3;
+
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+
+    &--error {
+      background-color: lighten($color-error-primary, 20%);
+    }
+  }
+
+  &__label {
+    @include visually-hidden;
+  }
+}
